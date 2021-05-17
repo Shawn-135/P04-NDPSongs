@@ -23,7 +23,7 @@ public class ThirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
-        etId = findViewById(R.id.etID);
+        etId = findViewById(R.id.etId);
         etTitle = findViewById(R.id.etTitle);
         etSinger = findViewById(R.id.etSinger);
         etYear = findViewById(R.id.etYear);
