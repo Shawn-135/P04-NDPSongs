@@ -12,16 +12,21 @@ public class ThirdActivity extends AppCompatActivity {
 
     EditText etId, etTitle, etSinger, etYear;
     Button btnUpdate, btnDelete, btnCancel;
-    SecondActivity data;
+    Song song;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
+        Intent i = getIntent();
+        song = (Song) i.getSerializableExtra("selectedSong");
+
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             DBHelper dbh = new DBHelper(ThirdActivity.this);
-            dbh.updateThirdActivity(data);
+            song.setTitle()
+            dbh.updateSong(data);
             dbh.close();
         });
 
