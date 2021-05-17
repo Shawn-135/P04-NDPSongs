@@ -36,9 +36,11 @@ public class SecondActivity extends AppCompatActivity {
         btnShowFiveStars = findViewById(R.id.btnShowFiveStars);
         yearSpinner = findViewById(R.id.yearSpinner);
 
+        songsList = new ArrayList<Song>();
+        songsList.addAll(db.getAllSongs());
 
-        songsList = db.getAllSongs();
-        songYearsList = db.getSongYears();
+        songYearsList = new ArrayList<Integer>();
+        songYearsList.addAll(db.getSongYears());
 
 
         aa = new SongsArrayAdapter(SecondActivity.this, R.layout.row, songsList);
@@ -106,12 +108,20 @@ public class SecondActivity extends AppCompatActivity {
         if (requestCode == THIRD_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 DBHelper db = new DBHelper(SecondActivity.this);
+
                 songYearsList.clear();
                 songYearsList.addAll(db.getSongYears());
+
                 songsList.clear();
                 songsList.addAll(db.getAllSongs());
-                spinnerAdapter.notifyDataSetChanged();
-                aa.notifyDataSetChanged();
+
+                aa = new SongsArrayAdapter(SecondActivity.this, R.layout.row, songsList);
+                lv.setAdapter(aa);
+
+                spinnerAdapter = new ArrayAdapter(
+                        this, android.R.layout.simple_spinner_item, songYearsList);
+
+                yearSpinner.setAdapter(spinnerAdapter);
             }
         }
     }//end of onActivityResult

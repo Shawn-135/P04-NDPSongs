@@ -68,11 +68,11 @@ public class ThirdActivity extends AppCompatActivity {
                 DBHelper dbh = new DBHelper(ThirdActivity.this);
                 String title = "";
                 String singers = "";
-                int year = 0;
+                Integer year = 0;
                 int stars = 0;
 
 
-                if(etTitle.getText().toString().trim().length() != 0 && etTitle.getText().toString().trim().length() != 0 && etSinger.getText().toString().trim().length() != 0 && etYear.getText().toString().trim().length() != 0 && radioStars.getCheckedRadioButtonId() != -1){
+                if(etTitle.getText().toString().trim().length() != 0 && etSinger.getText().toString().trim().length() != 0 && etYear.getText().toString().trim().length() != 0 && radioStars.getCheckedRadioButtonId() != -1){
                     title = etTitle.getText().toString();
                     singers = etSinger.getText().toString();
                     year = Integer.parseInt(etYear.getText().toString());

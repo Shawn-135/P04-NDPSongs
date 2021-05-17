@@ -164,9 +164,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                years.add(cursor.getInt(0));
+                if(! years.contains(cursor.getInt(0))){
+                    years.add(cursor.getInt(0));
+                }
             } while (cursor.moveToNext());
         }
+
+
 
         cursor.close();
         db.close();
@@ -189,6 +193,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return result;
     }//end of updateSong
+
+
 
     public int deleteSong(int id){
         SQLiteDatabase db = this.getWritableDatabase();
