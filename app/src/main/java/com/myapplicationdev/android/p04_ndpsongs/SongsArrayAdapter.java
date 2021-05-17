@@ -49,7 +49,7 @@ public class SongsArrayAdapter extends ArrayAdapter<Song> {
         Song song = songs.get(position);
         int stars = song.getStars();
 
-        tvRYear.setText(song.getYear());
+        tvRYear.setText(String.valueOf(song.getYear()));
         tvRTitle.setText(song.getTitle());
         tvRSinger.setText(song.getSingers());
 
