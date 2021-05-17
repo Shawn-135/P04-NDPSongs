@@ -44,8 +44,9 @@ public class SecondActivity extends AppCompatActivity {
         aa = new SongsArrayAdapter(SecondActivity.this, R.layout.row, songsList);
         lv.setAdapter(aa);
 
-        spinnerAdapter = new ArrayAdapter<Integer>(
+        spinnerAdapter = new ArrayAdapter(
                 this, android.R.layout.simple_spinner_item, songYearsList);
+
         yearSpinner.setAdapter(spinnerAdapter);
 
 
@@ -95,7 +96,6 @@ public class SecondActivity extends AppCompatActivity {
         });
 
 
-
     }//end of onCreate
 
 
@@ -105,6 +105,12 @@ public class SecondActivity extends AppCompatActivity {
 
         if (requestCode == THIRD_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
+                DBHelper db = new DBHelper(SecondActivity.this);
+                songYearsList.clear();
+                songYearsList.addAll(db.getSongYears());
+                songsList.clear();
+                songsList.addAll(db.getAllSongs());
+                spinnerAdapter.notifyDataSetChanged();
                 aa.notifyDataSetChanged();
             }
         }
