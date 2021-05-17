@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">P04-NDP Songs</string>
+    <string name="song_id">Song ID</string>
+    <string name="id_hint">Enter song title name</string>
+    <string name="song_title">Song Title</string>
+    <string name="singers_hint">Enter singers name here</string>
+    <string name="year">Year</string>
+    <string name="year_hint">Enter year of release here</string>
+    <string name="stars">Stars</string>
+    <string name="insert">Insert</string>
+    <string name="show_list">Show List</string>
 </resources>

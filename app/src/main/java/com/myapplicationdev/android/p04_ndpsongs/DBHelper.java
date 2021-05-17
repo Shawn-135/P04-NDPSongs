@@ -150,13 +150,39 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
+    public ArrayList<String> getSongYears() {
+
+        ArrayList<String> years = new ArrayList<String>();
+
+        String selectQuery = "SELECT " + COLUMN_YEAR
+                + " FROM " + TABLE_SONG;
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                years.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return years;
+    }//end of getSongYears
+
+
+
     public int updateSong(Song updatedSong){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, updatedSong.getTitle());
         values.put(COLUMN_SINGERS, updatedSong.getSingers());
         values.put(COLUMN_YEAR, updatedSong.getYear());
-        values.put(COLUMN_STARS, updatedSong.getStar());
+        values.put(COLUMN_STARS, updatedSong.getStars());
         String condition = COLUMN_ID + "= ?";
         String[] args = {String.valueOf(updatedSong.getId())};
         int result = db.update(TABLE_SONG, values, condition, args);
