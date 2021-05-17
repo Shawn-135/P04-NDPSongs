@@ -122,7 +122,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }//end of getAllFiveStarSongs
 
 
-    public ArrayList<Song> getSongsByYear(String filterYear) {
+    public ArrayList<Song> getSongsByYear(int filterYear) {
         ArrayList<Song> songs = new ArrayList<Song>();
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -150,9 +150,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
-    public ArrayList<String> getSongYears() {
+    public ArrayList<Integer> getSongYears() {
 
-        ArrayList<String> years = new ArrayList<String>();
+        ArrayList<Integer> years = new ArrayList<Integer>();
 
         String selectQuery = "SELECT " + COLUMN_YEAR
                 + " FROM " + TABLE_SONG;
@@ -164,7 +164,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                years.add(cursor.getString(0));
+                years.add(cursor.getInt(0));
             } while (cursor.moveToNext());
         }
 

@@ -20,7 +20,7 @@ public class SecondActivity extends AppCompatActivity {
     ListView lv;
     ArrayAdapter aa, spinnerAdapter;
     ArrayList<Song> songsList;
-    ArrayList<String> songYearsList;
+    ArrayList<Integer> songYearsList;
     Button btnShowFiveStars;
     Spinner yearSpinner;
 
@@ -44,7 +44,7 @@ public class SecondActivity extends AppCompatActivity {
         aa = new ArrayAdapter<Song>(SecondActivity.this, R.layout.row, songsList);
         lv.setAdapter(aa);
 
-        spinnerAdapter = new ArrayAdapter<String>(
+        spinnerAdapter = new ArrayAdapter<Integer>(
                 this, android.R.layout.simple_spinner_item, songYearsList);
         yearSpinner.setAdapter(spinnerAdapter);
 
@@ -66,7 +66,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String selectedYear = songYearsList.get(position);
+                Integer selectedYear = songYearsList.get(position);
                 DBHelper dbFS = new DBHelper(SecondActivity.this);
                 songsList.clear();
                 songsList.addAll(dbFS.getSongsByYear(selectedYear));
@@ -93,7 +93,7 @@ public class SecondActivity extends AppCompatActivity {
 
     }//end of onCreate
 
-    // This method is called when the second activity finishes
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
