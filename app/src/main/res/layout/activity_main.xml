@@ -10,26 +10,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/song_id" />
+        android:text="@string/song_title" />
 
     <EditText
-        android:id="@+id/etID"
+        android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/id_hint"
-        android:inputType="textPersonName" />
+        android:hint="@string/id_hint" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/song_title" />
+        android:text="@string/singers" />
 
     <EditText
-        android:id="@+id/etSingers"
+        android:id="@+id/editTextSingers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/singers_hint"
-        android:inputType="textPersonName" />
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -37,7 +36,7 @@
         android:text="@string/year" />
 
     <EditText
-        android:id="@+id/etYearMA"
+        android:id="@+id/editTextYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/year_hint" />
@@ -48,31 +47,37 @@
         android:text="@string/stars" />
 
     <RadioGroup
+        android:id="@+id/rgStars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/rb1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"/>
 
         <RadioButton
+            android:id="@+id/rb2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2"/>
 
         <RadioButton
+            android:id="@+id/rb3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3"/>
 
         <RadioButton
+            android:id="@+id/rb4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4"/>
 
         <RadioButton
+            android:id="@+id/rb5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5"/>
@@ -83,7 +88,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="btnInsert"
+            android:id="@+id/btnInsert"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="1"
