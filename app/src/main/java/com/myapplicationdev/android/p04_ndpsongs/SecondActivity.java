@@ -41,7 +41,7 @@ public class SecondActivity extends AppCompatActivity {
         songYearsList = db.getSongYears();
 
 
-        aa = new ArrayAdapter<Song>(SecondActivity.this, R.layout.row, songsList);
+        aa = new SongsArrayAdapter(SecondActivity.this, R.layout.row, songsList);
         lv.setAdapter(aa);
 
         spinnerAdapter = new ArrayAdapter<Integer>(

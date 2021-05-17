@@ -14,7 +14,7 @@ public class ThirdActivity extends AppCompatActivity {
 
     EditText etId, etTitle, etSinger, etYear;
     Button btnUpdate, btnDelete, btnCancel;
-    RadioGroup rgStars;
+    RadioGroup radioStars;
     Song song;
 
 
@@ -23,7 +23,7 @@ public class ThirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
-        etId = findViewById(R.id.etID);
+        etId = findViewById(R.id.etId);
         etTitle = findViewById(R.id.etTitle);
         etSinger = findViewById(R.id.etSinger);
         etYear = findViewById(R.id.etYear);
@@ -32,7 +32,7 @@ public class ThirdActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
 
-        rgStars = findViewById(R.id.rgStars);
+        radioStars = findViewById(R.id.radioStars);
 
         Intent i = getIntent();
         song = (Song) i.getSerializableExtra("selectedSong");
@@ -54,24 +54,24 @@ public class ThirdActivity extends AppCompatActivity {
                 int stars = 0;
 
 
-                if(etTitle.getText().toString().trim().length() != 0 && etTitle.getText().toString().trim().length() != 0 && etSinger.getText().toString().trim().length() != 0 && etYear.getText().toString().trim().length() != 0 && rgStars.getCheckedRadioButtonId() != -1){
+                if(etTitle.getText().toString().trim().length() != 0 && etTitle.getText().toString().trim().length() != 0 && etSinger.getText().toString().trim().length() != 0 && etYear.getText().toString().trim().length() != 0 && radioStars.getCheckedRadioButtonId() != -1){
                     title = etTitle.getText().toString();
                     singers = etSinger.getText().toString();
                     year = Integer.parseInt(etYear.getText().toString());
 
-                    if (rgStars.getCheckedRadioButtonId() == R.id.radioButton1){
+                    if (radioStars.getCheckedRadioButtonId() == R.id.radioButton1){
                         stars = 1;
                     }
-                    else if (rgStars.getCheckedRadioButtonId() == R.id.radioButton2){
+                    else if (radioStars.getCheckedRadioButtonId() == R.id.radioButton2){
                         stars = 2;
                     }
-                    else if (rgStars.getCheckedRadioButtonId() == R.id.radioButton3){
+                    else if (radioStars.getCheckedRadioButtonId() == R.id.radioButton3){
                         stars = 3;
                     }
-                    else if (rgStars.getCheckedRadioButtonId() == R.id.radioButton4){
+                    else if (radioStars.getCheckedRadioButtonId() == R.id.radioButton4){
                         stars = 4;
                     }
-                    else if (rgStars.getCheckedRadioButtonId() == R.id.radioButton5){
+                    else if (radioStars.getCheckedRadioButtonId() == R.id.radioButton5){
                         stars = 5;
                     }
 
