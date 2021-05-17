@@ -23,11 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rb1 = findViewById(R.id.rb1);
-        rb2 = findViewById(R.id.rb2);
-        rb3 = findViewById(R.id.rb3);
-        rb4 = findViewById(R.id.rb4);
-        rb5 = findViewById(R.id.rb5);
+        rgStars = findViewById(R.id.rgStars);
         btnInsert = findViewById(R.id.btnInsert);
         btnShowList = findViewById(R.id.btnShowList);
         editTextTitle = findViewById(R.id.editTextTitle);
