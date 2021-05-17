@@ -39,10 +39,28 @@ public class ThirdActivity extends AppCompatActivity {
 
         etId.setEnabled(false);
 
-        etId.setText(song.getId());
+        etId.setText(String.valueOf(song.getId()));
         etTitle.setText(song.getTitle());
         etSinger.setText(song.getSingers());
-        etYear.setText(song.getYear());
+        etYear.setText(String.valueOf(song.getYear()));
+        int stars = song.getStars();
+
+        if(stars == 1){
+            radioStars.check(R.id.radioButton1);
+        }
+        else if(stars == 2){
+            radioStars.check(R.id.radioButton2);
+        }
+        else if(stars == 3){
+            radioStars.check(R.id.radioButton3);
+        }
+        else if(stars == 4){
+            radioStars.check(R.id.radioButton4);
+        }
+        else if(stars == 5){
+            radioStars.check(R.id.radioButton5);
+        }
+
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +120,15 @@ public class ThirdActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 setResult(RESULT_OK, intent);
                 finish();
+            }
+        });
+
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThirdActivity.this, SecondActivity.class);
+                startActivity(intent);
             }
         });
 
