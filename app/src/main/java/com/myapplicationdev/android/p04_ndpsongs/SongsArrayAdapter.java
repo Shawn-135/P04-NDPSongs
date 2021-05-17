@@ -17,7 +17,7 @@ public class SongsArrayAdapter extends ArrayAdapter<Song> {
     Context context;
     ArrayList<Song> songs;
     ImageView ivIcon,iv1, iv2, iv3, iv4, iv5;
-    TextView tvYear, tvTitle, tvSinger;
+    TextView tvRYear, tvRTitle, tvRSinger;
 
 
     public SongsArrayAdapter(Context context, int resource, ArrayList<Song> objects) {
@@ -34,9 +34,9 @@ public class SongsArrayAdapter extends ArrayAdapter<Song> {
         View rowView = inflater.inflate(R.layout.row, parent, false);
 
         //Match the UI components with Java variables
-        tvYear = rowView.findViewById(R.id.tvYear);
-        tvTitle = rowView.findViewById(R.id.tvTitle);
-        tvSinger = rowView.findViewById(R.id.tvSinger);
+        tvRYear = rowView.findViewById(R.id.tvRYear);
+        tvRTitle = rowView.findViewById(R.id.tvRTitle);
+        tvRSinger = rowView.findViewById(R.id.tvRSinger);
 
         ivIcon = rowView.findViewById(R.id.ivIcon);
         iv1 = rowView.findViewById(R.id.star1);
@@ -49,7 +49,11 @@ public class SongsArrayAdapter extends ArrayAdapter<Song> {
         Song song = songs.get(position);
         int stars = song.getStars();
 
-        //Check if the property for starts >= 5, if so, "light" up the stars
+        tvRYear.setText(song.getYear());
+        tvRTitle.setText(song.getTitle());
+        tvRSinger.setText(song.getSingers());
+
+
         if (stars == 0) {
             iv5.setImageResource(android.R.drawable.btn_star_big_off);
             iv4.setImageResource(android.R.drawable.btn_star_big_off);
@@ -88,9 +92,6 @@ public class SongsArrayAdapter extends ArrayAdapter<Song> {
             iv1.setImageResource(android.R.drawable.btn_star_big_on);
         }
 
-        tvYear.setText(song.getYear());
-        tvTitle.setText(song.getTitle());
-        tvSinger.setText(song.getSingers());
 
         return rowView;
     }

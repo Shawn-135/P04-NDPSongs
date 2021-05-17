@@ -37,7 +37,7 @@ public class SecondActivity extends AppCompatActivity {
         yearSpinner = findViewById(R.id.yearSpinner);
 
 
-        songsList = new ArrayList<Song>();
+        songsList = db.getAllSongs();
         songYearsList = db.getSongYears();
 
 
@@ -62,10 +62,9 @@ public class SecondActivity extends AppCompatActivity {
         });
 
 
-        yearSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Integer selectedYear = songYearsList.get(position);
                 DBHelper dbFS = new DBHelper(SecondActivity.this);
                 songsList.clear();
@@ -74,7 +73,13 @@ public class SecondActivity extends AppCompatActivity {
 
                 aa.notifyDataSetChanged();
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
+
 
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
